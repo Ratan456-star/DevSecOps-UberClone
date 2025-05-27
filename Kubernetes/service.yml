@@ -3,13 +3,14 @@ kind: Service
 metadata:
   name: uberclone-service
   labels:
-    app: uberclone
+    app: uberclone-app
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
-      targetPort: 3000
-      protocol: TCP
+      targetPort: 80
+      nodePort: 30007
   selector:
-    app: uberclone
+    app: uberclone-app
+
 
