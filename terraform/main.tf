@@ -33,7 +33,7 @@ data "aws_subnets" "public" {
 }
 
 resource "aws_eks_cluster" "example" {
-  name     = "EKS_UBERCLONE"
+  name     = "EKS_CLOUD"
   role_arn = aws_iam_role.example.arn
 
   vpc_config {
@@ -77,7 +77,7 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryRea
 
 resource "aws_eks_node_group" "example" {
   cluster_name    = aws_eks_cluster.example.name
-  node_group_name = "Node-uber"
+  node_group_name = "Node-cloud"
   node_role_arn   = aws_iam_role.example1.arn
   subnet_ids      = data.aws_subnets.public.ids
 
