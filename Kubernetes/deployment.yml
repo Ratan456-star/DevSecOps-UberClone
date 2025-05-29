@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uberclone-app
-  labels:
-    app: uberclone-app
+  name: uberclone-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: uberclone-app
+      app: uberclone
   template:
     metadata:
       labels:
-        app: uberclone-app
+        app: uberclone
     spec:
       containers:
-      - name: uberclone-app
+      - name: uberclone
         image: ratanpandey07/uberclone:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000
+
